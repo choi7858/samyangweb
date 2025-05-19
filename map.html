@@ -30,13 +30,9 @@
 <body>
   <div id="map"></div>
   <div id="info-bar">
-    <b>Location:</b> <span id="loc">-</span>
   </div>
 
   <script>
-    document.getElementById('ref').textContent = document.referrer || '없음';
-    document.getElementById('loc').textContent = window.location.href;
-
     const map = new naver.maps.Map('map', {
       center: new naver.maps.LatLng(37.5671152, 126.9916127),
       zoom: 14,
