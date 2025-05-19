@@ -1,3 +1,4 @@
+<!-- public/samyangweb/map.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -23,7 +24,7 @@
       border-top: 1px solid #ccc;
     }
   </style>
-  <!-- ✅ 새 API 주소 및 파라미터 적용 -->
+  <!-- ✅ 새 Client ID 반영 -->
   <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=64c6myy0km"></script>
 </head>
 <body>
@@ -34,7 +35,6 @@
   </div>
 
   <script>
-    // 디버깅 정보 출력
     document.getElementById('ref').textContent = document.referrer || '없음';
     document.getElementById('loc').textContent = window.location.href;
 
@@ -49,9 +49,8 @@
       title: '삼양기공사'
     });
 
-    // 인증 실패 시 디버깅용 콜백
     window.navermap_authFailure = function () {
-      alert('🛑 네이버 지도 인증 실패! ncpKeyId 또는 등록된 URL을 다시 확인하세요.');
+      alert('🛑 인증 실패: 클라이언트 ID가 올바르지 않거나 URL이 등록되지 않았습니다.');
     };
   </script>
 </body>
