@@ -1,50 +1,28 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>지도</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-    }
-    #map {
-      width: 100%;
-      height: calc(100% - 50px);
-    }
-    #info-bar {
-      padding: 10px;
-      font-size: 14px;
-      background: #f0f0f0;
-      color: #000;
-      border-top: 1px solid #ccc;
-    }
-  </style>
-  <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=3kwocpfmkd"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>간단한 지도 표시하기</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=3kwocpfmkd"></script>
 </head>
 <body>
-  <div id="map"></div>
-  <div id="info-bar">
-    <strong>Referer:</strong> <span id="ref"></span><br>
-    <strong>Location:</strong> <span id="loc"></span>
-  </div>
+<div id="map" style="width:100%;height:400px;"></div>
 
-  <script>
-    document.getElementById('ref').textContent = document.referrer || '없음';
-    document.getElementById('loc').textContent = window.location.href;
-
-    const map = new naver.maps.Map('map', {
-      center: new naver.maps.LatLng(37.5671152, 126.9916127),
-      zoom: 14,
-    });
-
-    new naver.maps.Marker({
-      position: new naver.maps.LatLng(37.5671152, 126.9916127),
-      map: map,
-      title: '삼양기공사',
-    });
-  </script>
+<script>
+var mapOptions = {
+    center: new naver.maps.LatLng(37.51231, 127.12312),
+    zoom: 18
+};
+var map = new naver.maps.Map('map', mapOptions);
+var marker = new naver.maps.Marker({
+    position: new naver.maps.LatLng(37.51231, 127.12312),
+    map: map
+});
+// naver.maps.Event.addListener(map, 'click', function(e) {
+//     marker.setPosition(e.latlng);
+// });
+</script>
 </body>
 </html>
