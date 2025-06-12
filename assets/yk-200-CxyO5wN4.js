@@ -1,1 +1,0 @@
-const s="/samyangweb/assets/yk-200-BxxF-QkM.jpg";export{s as Y};
