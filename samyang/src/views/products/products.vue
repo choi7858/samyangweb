@@ -1,186 +1,117 @@
-```vue
-<!-- src/views/products/Category.vue -->
+<!-- samyang/src/views/products/products.vue -->
 <template>
-    <section class="product-category-section">
-        <div class="inner-container">
-            <!-- 전문가 브레드크럼 -->
-            <nav aria-label="breadcrumb" class="breadcrumb-wrapper breadcrumbs-professional">
-                <ol>
-                    <li>
-                        <router-link to="/">
-                            <svg class="home-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 3.293l6 6V15h-4v-4H6v4H2V9.293l6-6z" />
-                            </svg>
-                            홈
-                        </router-link>
-                    </li>
+    <main class="home-section bg-pattern">
+        <section class="product-category-section">
+            <div class="inner-container">
+                <h1 class="category-heading">제품 소개</h1>
 
-                    <li aria-current="page">제품 소개</li>
-                </ol>
-            </nav>
-
-            <!-- 메인 타이틀 -->
-            <h1 class="category-heading">제품 소개</h1>
-
-            <!-- 카테고리 그리드 -->
-            <div class="product-grid">
-                <router-link v-for="item in categories" :key="item.title" :to="item.to" class="product-card-link">
-                    <div class="product-card">
-                        <div class="image-container">
-                            <img :src="item.img" :alt="item.title" />
-                        </div>
-                        <div class="product-title">{{ item.title }}</div>
+                <!-- 파트너 로고 섹션 -->
+                <section class="partner-logos">
+                    <div class="logos-container">
+                        <img v-for="logo in logos" :key="logo.component" :src="logo.src" :alt="logo.alt"
+                            :class="{ inactive: selectedCategory && selectedCategory !== logo.component }"
+                            @click="selectCategory(logo.component)" class="logo-img" />
                     </div>
-                </router-link>
+                </section>
+
+                <!-- 제품 컴포넌트 출력 -->
+                <div class="products-wrapper">
+                    <component v-for="name in filteredComponents" :key="name" :is="name" />
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 </template>
 
 <script>
-import clampImg from '@/assets/images/products/GeneralHandTools&ToggleClamps.jpg'
-import steelImg from '@/assets/images/products/LiftingClampsForSteel.jpg'
-import cranesImg from '@/assets/images/products/Cranes.jpg'
-import concreteImg from '@/assets/images/products/LiftingClampsForConcrete.jpg'
-import housingImg from '@/assets/images/products/LiftingClampsForHousing.jpg'
+import aceLogo from '@/assets/images/logos/ace.png'
+import cactusLogo from '@/assets/images/logos/cactus.png'
+import supertoolLogo from '@/assets/images/logos/supertool.png'
+import tanakaLogo from '@/assets/images/logos/tanaka.png'
+import ykLogo from '@/assets/images/logos/yk.jpg'
+
+import Supertool from '@/views/products/supertool/supertool.vue'
+import ACE from '@/views/products/ace/Ace.vue'
+import Cactus from '@/views/products/cactus/cactus.vue'
+import Tanaka from '@/views/products/tanaka/tanaka.vue'
 
 export default {
-    name: 'Category',
+    name: 'Products',
+    components: { Supertool, ACE, Cactus, Tanaka },
     data() {
         return {
-            categories: [
-                { to: '/products/clamps', img: clampImg, title: 'CLAMPS' },
-                { to: '/products/steel-clamps', img: steelImg, title: 'LIFTING CLAMPS FOR STEEL' },
-                { to: '/products/cranes', img: cranesImg, title: 'CRANES' },
-                { to: '/products/concrete-clamps', img: concreteImg, title: 'LIFTING CLAMPS FOR CONCRETE' },
-                { to: '/products/housing-clamps', img: housingImg, title: 'LIFTING CLAMPS FOR HOUSING' }
-            ]
+            logos: [
+                { src: supertoolLogo, alt: 'Supertool', component: 'Supertool' },
+                { src: aceLogo, alt: 'ACE', component: 'ACE' },
+                { src: cactusLogo, alt: 'Cactus', component: 'Cactus' },
+                { src: tanakaLogo, alt: 'Tanaka', component: 'Tanaka' },
+                { src: ykLogo, alt: 'YUKWANG', component: 'Tanaka' }
+            ],
+            selectedCategory: null
+        }
+    },
+    computed: {
+        filteredComponents() {
+            const all = ['Supertool', 'ACE', 'Cactus', 'Tanaka']
+            return this.selectedCategory ? [this.selectedCategory] : all
+        }
+    },
+    methods: {
+        selectCategory(key) {
+            this.selectedCategory = this.selectedCategory === key ? null : key
         }
     }
 }
 </script>
 
 <style scoped>
-/* 섹션 래퍼 */
-.product-category-section {
-    background: #f9f9f9;
-    padding: 2rem 0;
-}
-
 .inner-container {
-    max-width: 1200px;
+    max-width: 90%;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
-/* 전문가 브레드크럼 */
-.breadcrumb-wrapper.breadcrumbs-professional {
-    margin-bottom: 1.5rem;
-}
-
-.breadcrumbs-professional ol {
-    display: flex;
-    align-items: center;
-    background: #ffffff;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    margin: 0;
-}
-
-.breadcrumbs-professional li {
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    color: #555555;
-}
-
-.breadcrumbs-professional li+li::before {
-    content: '›';
-    margin: 0 1rem;
-    color: #cccccc;
-}
-
-.breadcrumbs-professional li a {
-    display: flex;
-    align-items: center;
-    color: #333333;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.breadcrumbs-professional li a:hover {
-    color: #2c4ea0;
-}
-
-.breadcrumbs-professional li[aria-current] {
-    font-weight: 600;
-    color: #2c4ea0;
-}
-
-.home-icon {
-    width: 1rem;
-    height: 1rem;
-    margin-right: 0.5rem;
-    fill: #2c4ea0;
-}
-
 /* 메인 타이틀 */
 .category-heading {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 2rem;
     color: #2c4ea0;
     font-weight: 600;
 }
 
-/* 카테고리 그리드 */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
+/* 로고 그레이아웃 */
+.partner-logos {
+    padding: 2rem 1rem;
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
 }
 
-.product-card-link {
-    text-decoration: none;
+.logos-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6rem;
+    row-gap: 3rem;
 }
 
-.product-card {
-    background: #ffffff;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
+.logo-img {
+    height: 60px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: filter 0.3s, opacity 0.3s;
 }
 
-.product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+.logo-img.inactive {
+    filter: grayscale(100%);
+    opacity: 0.5;
 }
 
-.image-container {
-    height: 160px;
-    overflow: hidden;
-}
-
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.product-card:hover .image-container img {
-    transform: scale(1.05);
-}
-
-.product-title {
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333333;
-    text-align: center;
+/* 제품 컴포넌트 래퍼 (간격만 예시) */
+.products-wrapper>*+* {
+    margin-top: 3rem;
 }
 
 /* 반응형 */
@@ -188,10 +119,5 @@ export default {
     .inner-container {
         padding: 0 0.5rem;
     }
-
-    .product-grid {
-        gap: 1.5rem;
-    }
 }
 </style>
-```

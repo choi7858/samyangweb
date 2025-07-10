@@ -1,128 +1,132 @@
-<!-- src/views/About.vue -->
 <template>
-    <section class="about container">
-        <!-- 제목 -->
-        <h2 class="section-title">회사소개</h2>
+    <main class="home-section bg-pattern">
+        <section class="about-section">
+            <div class="title-wrapper">
+                <h2 class="section-title">회사소개</h2>
+            </div>
 
-        <!-- 회사소개 본문 -->
-        <div class="text-content">
-            <p>
-                삼양기공사는 1985년에 설립되어, 일본 및 유럽의 다양한 고품질 공구 브랜드를 국내에 소개·유통해 왔습니다.
-                SUPER TOOL, SUWA, CACTUS 등 전 세계 전문가들이 인정한 수입 공구와 내수 절단기(유광공업, 엠티엠무역)를
-                취급하며, 건설·토목·플랜트·제조업 현장의 생산성과 안전을 동시에 높이고 있습니다.
-            </p>
-            <p>
-                당사는 “정직과 신뢰”를 경영철학으로 삼아, 모든 고객에게 최적의 솔루션을 제공하기 위해
-                기술 지원, 신속한 A/S, 체계적인 재고 관리 시스템을 운영하고 있습니다.
-                또한, 매년 신제품 데모 데이를 개최하여, 업계 관계자들이 최신 공구 트렌드를 체험할 수 있는 기회를 드리고 있습니다.
-            </p>
-            <p>
-                앞으로도 끊임없는 연구개발과 글로벌 네트워크 강화를 통해, ‘고객과 함께 성장하는 파트너’로서
-                최고의 품질과 서비스를 제공하겠습니다.
-            </p>
-        </div>
+            <div class="text-content">
+                <p>
+                    안녕하십니까?<br />
+                    삼양기공사 홈페이지를 방문해주신 고객 여러분께 감사드립니다.
+                </p>
+                <p>
+                    삼양기공사는 50여년간 리프팅클램프, 에어임팩트렌치, 라쳇 케이블커터등 유수의 브랜드
+                    제품 수입 및<br />
+                    전설유압공구, 경자동가스절단기등을 공급하고 있습니다.<br /><br />
+                    각종 건설, 산업현장에 필요한 제품을 공급하면서 고객만족의 극대화를 추구하고 지속적인 품질개선과<br />
+                    신상품 개발 및 발굴을 통하여 고객들이 편리하고 안전하게 사용할 수 있는 제품을 공급하도록<br />
+                    최선의 노력을 하고 있습니다.
+                </p>
+                <p>
+                    앞으로도 끊임없이 새로움에 도전하고 고객이 최고의 신뢰를 갖고 찾는 기업이 되도록
+                    하겠습니다.<br />
+                </p>
+                <p>감사합니다.</p>
 
-        <!-- 찾아오시는 길 -->
-        <h3 class="subheading">찾아오시는 길</h3>
-        <div class="map-container" id="map"></div>
-    </section>
+            </div>
+
+            <div class="map-section">
+                <h3 class="subheading">찾아오시는 길</h3>
+                <p class="map-address">상호: 삼양기공사</p>
+                <p class="map-address">전화: 02-2267-0066, 0681</p>
+                <p class="map-address">팩스: 02-2275-5049</p>
+                <p class="map-address">이메일: sytool09@naver.com</p>
+                <p class="map-address">주소: 서울특별시 중구 충무로9길 14 길영빌딩 2층 201, 203호</p>
+                <iframe src="/map.html" class="map-container" title="오시는 길 지도"></iframe>
+
+                <br />
+            </div>
+        </section>
+    </main>
 </template>
 
 <script>
 export default {
-    name: 'About',
-    methods: {
-        initMap() {
-            if (!window.naver || !window.naver.maps) {
-                this.handleAuthFailure();
-                return;
-            }
-            const position = new window.naver.maps.LatLng(37.5671152, 126.9916127);
-            const map = new window.naver.maps.Map('map', {
-                center: position,
-                zoom: 15,
-            });
-            new window.naver.maps.Marker({
-                position,
-                map,
-                title: '삼양기공사',
-            });
-        },
-        handleAuthFailure() {
-            const el = document.getElementById('map');
-            if (el) {
-                el.innerHTML =
-                    '<p>지도를 불러올 수 없습니다. 네이버 클라우드 설정을 확인하세요.</p>';
-            }
-            console.error('Naver Maps API 인증/로드 실패');
-        },
-    },
-    mounted() {
-        window.navermap_authFailure = this.handleAuthFailure;
-        window.initMap = this.initMap;
-
-        if (!document.getElementById('naver-map-script')) {
-            const script = document.createElement('script');
-            script.id = 'naver-map-script';
-            script.src =
-                'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=oia4jmdkow&callback=initMap';
-            script.onerror = this.handleAuthFailure;
-            document.head.appendChild(script);
-        } else if (window.naver && window.naver.maps) {
-            this.initMap();
-        }
-    },
+    name: 'About'
 };
 </script>
 
 <style scoped>
-.about {
-    padding: 2rem 1rem;
-    max-width: 960px;
-    margin: 0 auto;
+.about-section {
+    max-width: 65%;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.title-wrapper {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .section-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    display: inline-block;
+    font-size: 2.75rem;
+    font-weight: 700;
     color: #2c4ea0;
-    text-align: center;
+    border-bottom: 4px solid #2c4ea0;
+    padding-bottom: 0.5rem;
 }
 
 .text-content {
-    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.125rem;
     color: #333;
-    margin-bottom: 2rem;
+    line-height: 1.8;
+    overflow-x: auto;
 }
 
 .text-content p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    white-space: nowrap;
 }
 
-/* 작은 소제목 */
-.subheading {
+.company-signature {
+    text-align: center;
     font-size: 1.5rem;
+    font-weight: 600;
     color: #2c4ea0;
-    margin-bottom: 0.75rem;
-    border-left: 4px solid #2c4ea0;
-    padding-left: 0.75rem;
+    margin-top: 1.5rem;
 }
 
-/* 지도 영역은 텍스트 아래로 내려서 스크롤 시 나타남 */
+.map-section {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: left;
+}
+
+.subheading {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2c4ea0;
+    margin-bottom: 1rem;
+    border-left: 6px solid #2c4ea0;
+    padding-left: 1rem;
+    text-align: left;
+}
+
 .map-container {
     width: 100%;
-    height: 450px;
-    border: 1px solid #e0e0e0;
+    height: 400px;
     border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin-bottom: 2rem;
+    margin: 0 auto;
+    border: none;
+}
+
+.map-address {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #555;
 }
 
 @media (max-width: 768px) {
-    .about {
-        padding: 1.5rem 1rem;
-    }
-
     .map-container {
         height: 300px;
     }

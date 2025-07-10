@@ -1,74 +1,139 @@
-<!-- src/views/Home.vue -->
 <template>
-    <main class="home">
-        <swiper class="home-swiper" :modules="swiperModules" :slides-per-view="'auto'" :centered-slides="true"
-            :loop="true" :looped-slides="slides.length" navigation :pagination="{ clickable: true }">
-            <swiper-slide v-for="(slide, idx) in slides" :key="idx" class="peeking-slide">
-                <div class="slide-container">
-                    <img :src="slide" alt="슬라이더 이미지" class="slide-img" />
+    <main class="home-section">
+        <div class="inner-container">
+            <!-- Swiper 슬라이더 -->
+            <section class="slider-section">
+                <swiper class="home-swiper" :modules="swiperModules" :loop="true" :loopedSlides="slides.length"
+                    :pagination="{ clickable: true }" :autoplay="{ delay: 3000 }" :breakpoints="breakpoints">
+                    <swiper-slide v-for="(slide, idx) in slides" :key="idx" class="slide-item">
+                        <div class="slide-container">
+                            <img :src="slide" :alt="`슬라이더 이미지 ${idx + 1}`" class="slide-img" />
+                        </div>
+                    </swiper-slide>
+                </swiper>
+            </section>
+
+            <!-- 파트너 로고 섹션 (무한 루프) -->
+            <section class="partner-logos">
+                <div class="logos-marquee">
+                    <div class="logos-track">
+                        <div v-for="logo in logos" :key="logo.alt + '-1'" class="logo-wrapper">
+                            <img :src="logo.src" :alt="logo.alt" class="logo-img" />
+                        </div>
+                        <div v-for="logo in logos" :key="logo.alt + '-2'" class="logo-wrapper">
+                            <img :src="logo.src" :alt="logo.alt" class="logo-img" />
+                        </div>
+                    </div>
                 </div>
-            </swiper-slide>
-        </swiper>
+            </section>
 
-        <section class="welcome-text">
-            <h1>삼양기공사에 오신 것을 환영합니다</h1>
-            <p>
-                고품질 수입 공구(SUPER TOOL, SUWA, CACTUS)와<br />
-                내수 절단기(유광공업)를 유통합니다.
-            </p>
-        </section>
-        <Products />
-        <About />
+            <!-- 환영 문구 -->
+            <section class="welcome-text">
+                <h1>삼양기공사에 오신 것을 환영합니다</h1>
+            </section>
 
-
+            <!-- 회사소개 및 제품 섹션 -->
+            <About />
+            <Products />
+        </div>
     </main>
 </template>
 
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation, Pagination } from 'swiper/modules'
-import About from './About.vue'
-// CSS
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
-import slide1 from '@/assets/images/slider/tools1.jpg'
+import slide1 from '@/assets/images/slider/slider1.jpg'
 import slide2 from '@/assets/images/slider/slider2.jpg'
 import slide3 from '@/assets/images/slider/slider3.jpg'
 import slide4 from '@/assets/images/slider/slider4.jpg'
-import Products from './products/products.vue'
+import slide5 from '@/assets/images/slider/slider5.jpg'
+import slide6 from '@/assets/images/products/tanaka/yukwang.jpg'
 
-const slides = [slide1, slide2, slide3, slide4]
-// Navigation, Pagination 모듈 등록
-const swiperModules = [Navigation, Pagination]
+import aceLogo from '@/assets/images/logos/ace.png'
+import cactusLogo from '@/assets/images/logos/cactus.png'
+import supertoolLogo from '@/assets/images/logos/supertool.png'
+import tanakaLogo from '@/assets/images/logos/tanaka.png'
+import ykLogo from '@/assets/images/logos/yk.jpg'
+
+import Products from './products/products.vue'
+import About from './About.vue'
+
+const slides = [slide1, slide2, slide3, slide4, slide5, slide6]
+const swiperModules = [Navigation, Pagination, Autoplay]
+
+// 모바일부터 데스크탑까지 자연스러운 슬라이드 뷰
+const breakpoints = {
+    320: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+    },
+    640: {
+        slidesPerView: 1.2,
+        spaceBetween: 15,
+    },
+    768: {
+        slidesPerView: 1.5,
+        spaceBetween: 20,
+    },
+    1024: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+    },
+}
+
+const logos = [
+    { src: aceLogo, alt: 'ACE' },
+    { src: cactusLogo, alt: 'CACTUS' },
+    { src: supertoolLogo, alt: 'SUPER TOOL' },
+    { src: tanakaLogo, alt: 'TANAKA' },
+    { src: ykLogo, alt: 'YUKWANG' },
+]
 </script>
 
 <style scoped>
-.home {
-    background: #f9f9f9;
+.home-section {
+    background-color: #f9f9f9;
+    background-image: url('@/assets/images/backgrounds/bg-pattern.png');
+    background-repeat: repeat;
+    background-size: 25%;
     padding: 2rem 0;
+}
+
+.inner-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.page-heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
     text-align: center;
+    color: #2c4ea0;
+}
+
+/* 슬라이더 */
+.slider-section {
+    margin-bottom: 2rem;
 }
 
 .home-swiper {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto 2rem;
-    overflow: visible;
 }
 
-/* 중앙 슬라이드 비율 조정: 좌우 peeking 효과 */
-.peeking-slide {
-    width: 85% !important;
-}
-
+/* slide-item 클래스 제거하고, 컨테이너로 제어 */
 .slide-container {
     position: relative;
     width: 100%;
     padding-top: 40%;
-    border-radius: 8px;
+    /* 2.5:1 비율 */
     overflow: hidden;
+    border-radius: 8px;
+    background: #fff;
 }
 
 .slide-img {
@@ -78,48 +143,62 @@ const swiperModules = [Navigation, Pagination]
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s;
 }
 
-.peeking-slide:hover .slide-img {
+.slide-container:hover .slide-img {
     transform: scale(1.05);
 }
 
-.swiper-button-prev,
-.swiper-button-next {
-    color: #2c4ea0;
-    opacity: 0.8;
-    transition: opacity 0.3s;
+/* 파트너 로고 무한 루프 */
+.partner-logos {
+    overflow: hidden;
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
 }
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-    opacity: 1;
+.logos-marquee {
+    width: 100%;
+    overflow: hidden;
 }
 
-.swiper-pagination-bullet {
-    background: rgba(44, 78, 160, 0.4) !important;
+.logos-track {
+    display: flex;
+    align-items: center;
+    animation: scroll-right 20s linear infinite;
 }
 
-.swiper-pagination-bullet-active {
-    background: #2c4ea0 !important;
+.logo-wrapper {
+    flex: none;
+    margin: 0 2rem;
 }
 
+.logo-img {
+    height: 60px;
+    object-fit: contain;
+}
+
+/* 애니메이션 */
+@keyframes scroll-right {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* 환영 문구 */
 .welcome-text {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    text-align: center;
+    margin: 2rem 0;
 }
 
 .welcome-text h1 {
-    font-size: 2.5rem;
-    color: #2c4ea0;
-    margin-bottom: 1rem;
-}
-
-.welcome-text p {
-    font-size: 1.2rem;
+    font-size: 2rem;
     color: #333;
-    line-height: 1.6;
 }
 </style>

@@ -8,6 +8,8 @@
                     <img :src="logo" alt="삼양기공사 로고" loading="lazy" />
                 </router-link>
             </div>
+            <!-- 추가된 브랜드 텍스트 -->
+            <router-link to="/" class="brand-text">삼양기공사</router-link>
 
             <!-- 데스크탑 네비게이션 메뉴 -->
             <ul class="nav-list">
@@ -52,10 +54,9 @@ export default {
             navItems: [
                 { to: '/about', label: '회사소개' },
                 { to: '/products', label: '제품소개' },
-                { to: '/quote', label: '견적' },
-                { to: '/support', label: '고객지원' },
-                { to: '/resources', label: '기술자료' },
+                { to: '/quote', label: '견적문의' },
                 { to: '/sitemap', label: '사이트맵' },
+                { to: '/search', label: '검색' },
             ]
         }
     }
@@ -74,6 +75,11 @@ export default {
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+.header-nav router-link .brand-text,
+.header-nav router-link .brand-text:hover {
+    text-decoration: none;
+}
+
 /* 컨테이너: 한 줄로 정렬 */
 .nav-container {
     max-width: 1200px;
@@ -81,15 +87,33 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 64px;
+    height: 75px;
     padding: 0 1.5rem;
 }
 
 /* 로고 */
 .logo img {
-    height: 48px;
+    height: 70px;
     transition: transform 0.3s;
 }
+
+/* src/components/Header.vue <style scoped> 내부에 추가 */
+
+.brand-text {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #032a85ec;
+    font-family: 'Black Han Sans', sans-serif;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    /* 여기서 직접 제거 */
+}
+
+.brand-text:hover {
+    text-decoration: none;
+    /* 호버 시에도 밑줄 유지 안 함 */
+}
+
 
 .logo img:hover {
     transform: scale(1.05);

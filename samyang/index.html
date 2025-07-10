@@ -1,10 +1,91 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- 반응형 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Vue</title>
+
+    <!-- SEO: 타이틀 · 설명 · 키워드 · 로봇 -->
+    <title>삼양기공사 – 산업용 리프팅·고정 공구 전문</title>
+    <meta name="description"
+      content="삼양기공사는 SUWA - ACE 에어 임팩트 렌치, SUPERTOOL 리프팅 클램프, CACTUS 라쳇 케이블커터 압착공구 펌프 유압 펀칭기 TANAKA 자동절단기용 화구, YUKWANG 포터블가스절단기를 수입·판매하는 공구 전문 업체입니다." />
+    <meta name="keywords"
+      content="삼양기공사, symt.co.kr,
+        강재용 리프팅 클램프, 콘크리트용 리프팅 클램프, 하우징용 리프팅 클램프, 파이프 용접용 클램프,
+        에어 임팩트 렌치, 라쳇 케이블커터, 압착공구, 펌프, 유압 펀칭기,
+        자동절단기용 화구(LPG), 포터블 가스절단기, SUPERTOOL, CACTUS, TANAKA, SUWA " />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://symt.co.kr/" />
+
+    
+
+    <!-- 테마 컬러 -->
+    <meta name="theme-color" content="#2c4ea0" />
+
+    <!-- Open Graph for SNS -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="삼양기공사 – 산업용 리프팅·고정 공구 전문" />
+    <meta property="og:description"
+      content="ACE, SUPERTOOL, CACTUS, TANAKA, YUKWANG 공구를 수입·판매하는 삼양기공사 공식 웹사이트" />
+    <meta property="og:image" content="https://symt.co.kr/og-image.png" />
+    <meta property="og:url" content="https://symt.co.kr/" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="삼양기공사 – 산업용 리프팅·고정 공구 전문" />
+    <meta name="twitter:description"
+      content="ACE, SUPERTOOL, CACTUS, TANAKA, YUKWANG 공구를 수입·판매하는 삼양기공사 공식 웹사이트" />
+    <meta name="twitter:image" content="https://symt.co.kr/og-image.png" />
+
+    <!-- 폰트 최적화 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;600&display=swap" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;600&display=swap"
+      rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/symt.png" />
+
+    <!-- 구조화 데이터: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "삼양기공사",
+      "url": "https://symt.co.kr/",
+      "logo": "https://symt.co.kr/symt.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+82-XXX-XXXX-XXXX",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.facebook.com/yourpage",
+        "https://www.youtube.com/yourchannel"
+      ]
+    }
+    </script>
+
+    <!-- 구조화 데이터: WebSite + SearchAction (검색박스) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://symt.co.kr/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://symt.co.kr/search?query={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="app"></div>
