@@ -10,4 +10,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+  // 정적 에셋으로 인식할 이미지 확장자 지정 (대소문자 모두 포함)
+  assetsInclude: ["**/*.JPG", "**/*.JPEG", "**/*.bmp", "**/*.BMP"],
 });
