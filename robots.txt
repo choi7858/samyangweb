@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# 크롤링 제외할 경로 (필요시)
+# Disallow: /admin/
+# Disallow: /private/
+# Disallow: /*.pdf$
+
+# 크롤링 속도 제어 (선택사항)
+# Crawl-delay: 1
+
+# 사이트맵 위치
+Sitemap: https://symt.co.kr/sitemap.xml
+
+# 네이버 검색로봇 최적화
+User-agent: Yeti
+Allow: /
+
+# 구글 검색로봇 최적화  
+User-agent: Googlebot
+Allow: /
+
+# 다음 검색로봇
+User-agent: Daumoa
+Allow: /
