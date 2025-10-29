@@ -12,8 +12,11 @@ async function buildSitemap() {
 
   // routes.json의 각 path를 순회하며 URL 항목 작성
   for (const r of routes) {
+    // path가 '/'인 경우를 제외하고, 앞에 '#'을 추가
+    const urlPath = r.path === "/" ? "" : "#" + r.path;
+
     sitemapStream.write({
-      url: r.path,
+      url: `${hostname}/${urlPath}`,
       changefreq: "weekly",
       priority: r.path === "/" ? 1.0 : 0.8,
     });

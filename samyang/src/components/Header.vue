@@ -87,7 +87,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 75px;
+    height: 6.5rem;
     padding: 0 1.5rem;
 }
 
@@ -100,13 +100,16 @@ export default {
 /* src/components/Header.vue <style scoped> 내부에 추가 */
 
 .brand-text {
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-weight: 900;
     color: #032a85ec;
     font-family: 'Black Han Sans', sans-serif;
     letter-spacing: 0.05em;
     text-decoration: none;
-    /* 여기서 직접 제거 */
+    white-space: nowrap;
+    min-width: 0;
+    flex-shrink: 1;
+    font-size: clamp(2rem, 5vw, 4rem);
 }
 
 .brand-text:hover {
@@ -131,7 +134,7 @@ export default {
 /* 네비게이션 링크 - 밑줄 제거 */
 .nav-link {
     color: #333333;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
     position: relative;
     padding: 0.5rem 0;
@@ -231,6 +234,30 @@ export default {
 
     .hamburger {
         display: flex;
+    }
+}
+
+@media (max-width: 992px) {
+    .brand-text {
+        font-size: 2rem;
+        /* 더 작은 화면에서 폰트 크기 조정 */
+    }
+}
+
+/* 모바일 화면 (예: 768px 이하) */
+@media (max-width: 992px) {
+    .nav-list {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+@media (max-width: 447px) {
+    .brand-text {
+        display: none;
     }
 }
 </style>

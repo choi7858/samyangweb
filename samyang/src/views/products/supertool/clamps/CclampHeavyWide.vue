@@ -1,35 +1,35 @@
-<!-- src/views/products/clamps/CclampBahco.vue -->
+<!-- src/views/products/clamps/CclampHeavyWide.vue -->
 <template>
     <section class="product-detail-section">
         <div class="inner-container">
-
             <!-- 전문가 브레드크럼 -->
             <Breadcrumb />
 
             <!-- 제품 헤더 -->
             <div class="product-header">
-                <h2 class="product-title">C CLAMP (Bahco 형)</h2>
-                <p class="product-code">BC25–300</p>
+                <h2 class="product-title">C CLAMP 헤비 듀티 와이드 타입</h2>
+                <p class="product-code">CC50–200</p>
             </div>
 
             <!-- 오버뷰: 이미지 & 특징 -->
             <div class="product-overview">
                 <div class="image-block">
-                    <img :src="mainImage" alt="C CLAMP" class="product-main-image" />
+                    <img :src="mainImage" alt="C CLAMP 헤비 듀티 와이드" class="product-main-image" />
                     <div class="thumbnail-list">
-                        <img v-for="(thumb, idx) in thumbnails" :key="idx" :src="thumb" class="thumb-img"
-                            alt="C CLAMP 썸네일" />
+                        <img v-for="(thumb, idx) in thumbnails" :key="idx" :src="thumb" class="thumb-img" alt="썸네일" />
                     </div>
                 </div>
                 <div class="features">
                     <h5>특징</h5>
                     <ul>
                         <li>용접 및 임시 고정 작업에 편리합니다.</li>
+                        <li>깊은 아가리(스루스루)를 통해 깊은 위치에서도 단단히 고정할 수 있습니다.</li>
                         <li>빠른 조임이 가능한 핸들이 장착되어 있습니다.</li>
-                        <li>육각 렌치로 마지막 조임을 하면 더욱 안전하게 고정할 수 있습니다.</li>
+                        <li>육각 머드를 렌치로 마지막에 조이면 더욱 안전하게 고정할 수 있습니다.</li>
+                        <li>바디에 구멍이 있어 볼트로 플레이트를 고정하거나 위치를 잡을 때 용이합니다.</li>
                     </ul>
-                    <a href="https://www.supertool.co.jp/cmsdesigner/dlfile.php?entryname=english_catalog_download&entryid=00015&fileid=00000002&/Page%20No.19%EF%BD%9EP78%20GENERAL%20HAND%20TOOLS%20%26%20CLAMPS.pdf"
-                        class="btn-catalogue" target="_blank">
+                    <a href="https://www.supertool.co.jp/english/support/catalog_download.php" class="btn-catalogue"
+                        target="_blank">
                         카탈로그 보기
                     </a>
                 </div>
@@ -45,15 +45,15 @@
                     </tr>
                     <tr>
                         <th>마감</th>
-                        <td>음극 전착 코팅</td>
+                        <td>음극 전착 도장</td>
                     </tr>
                     <tr>
                         <th>클램프 범위</th>
-                        <td>25〜300mm</td>
+                        <td>50〜200mm</td>
                     </tr>
                     <tr>
                         <th>사이즈</th>
-                        <td>총 10가지 사이즈</td>
+                        <td>총 6가지 사이즈</td>
                     </tr>
                 </tbody>
             </table>
@@ -62,16 +62,16 @@
 </template>
 
 <script>
-import bahco from '@/assets/images/products/clamps/cclamp-bahco.png'
+import heavyWide from '@/assets/images/products/clamps/cclamp-heavy-wide.png'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 
 export default {
-    name: 'CclampBahco',
+    name: 'CclampHeavyWide',
     components: { Breadcrumb },
     data() {
         return {
-            mainImage: bahco,
-            thumbnails: [bahco]
+            mainImage: heavyWide,
+            thumbnails: [heavyWide]
         }
     }
 }
@@ -84,7 +84,7 @@ export default {
 }
 
 .inner-container {
-    max-width: 960px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
 }

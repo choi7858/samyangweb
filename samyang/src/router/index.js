@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import routeConfig from "./routes.json" assert { type: "json" };
 
 const pages = import.meta.glob("../views/**/*.vue");
@@ -11,8 +11,8 @@ const routes = routeConfig.map(({ path, name, file, meta }) => ({
 }));
 
 const router = createRouter({
-  // Vite: import.meta.env.BASE_URL 은 vite.config.js 의 base 값 (기본 "/")
-  history: createWebHistory(import.meta.env.BASE_URL),
+  // import.meta.env.BASE_URL 대신 createWebHashHistory()를 사용합니다.
+  history: createWebHashHistory(),
   routes,
   scrollBehavior() {
     return { left: 0, top: 0 };

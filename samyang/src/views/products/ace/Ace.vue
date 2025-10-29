@@ -13,6 +13,7 @@
                         <div class="product-info">
                             <div class="item-code">{{ prod.code }}</div>
                             <div class="item-name">{{ prod.name }}</div>
+                            <div class="item-click">{{ prod.click }}</div>
                         </div>
                     </div>
                 </router-link>
@@ -40,16 +41,16 @@ export default {
     data() {
         return {
             products: [
-                { to: '/products/ace/ACE200PN', img: ACE200PN, code: '3/4 inch', name: 'ACE-200PN' },
-                { to: '/products/ace/ACE2300P', img: ACE2300P, code: '3/4 inch', name: 'ACE-2300P' },
-                { to: '/products/ace/ACE2500PN', img: ACE2500PN, code: '3/4 inch', name: 'ACE-2500PN' },
-                { to: '/products/ace/ACE3200S', img: ACE3200S, code: '1 inch', name: 'ACE-3200S' },
-                { to: '/products/ace/ACE4000PN', img: ACE4000PN, code: '1 inch', name: 'ACE-4000PN' },
-                { to: '/products/ace/ACE4500PN', img: ACE4500PN, code: '1 inch', name: 'ACE-4500PN' },
-                { to: '/products/ace/ACE5000SN', img: ACE5000SN, code: '1 inch', name: 'ACE-5000SN' },
-                { to: '/products/ace/ACE535S', img: ACE535S, code: '1 inch', name: 'ACE-535S' },
-                { to: '/products/ace/ACE551S', img: ACE551S, code: '1 ½ inch', name: 'ACE-551S' },
-                { to: '/products/ace/SI1490B', img: SI1490B, code: '1/2 inch', name: 'SI-1490B' },
+                { to: '/products/ace/ACE200PN', img: ACE200PN, code: '3/4 inch', name: 'ACE-200PN', click: '자세히 보기' },
+                { to: '/products/ace/ACE2300P', img: ACE2300P, code: '3/4 inch', name: 'ACE-2300P', click: '자세히 보기' },
+                { to: '/products/ace/ACE2500PN', img: ACE2500PN, code: '3/4 inch', name: 'ACE-2500PN', click: '자세히 보기' },
+                { to: '/products/ace/ACE3200S', img: ACE3200S, code: '1 inch', name: 'ACE-3200S', click: '자세히 보기' },
+                { to: '/products/ace/ACE4000PN', img: ACE4000PN, code: '1 inch', name: 'ACE-4000PN', click: '자세히 보기' },
+                { to: '/products/ace/ACE4500PN', img: ACE4500PN, code: '1 inch', name: 'ACE-4500PN', click: '자세히 보기' },
+                { to: '/products/ace/ACE5000SN', img: ACE5000SN, code: '1 inch', name: 'ACE-5000SN', click: '자세히 보기' },
+                { to: '/products/ace/ACE535S', img: ACE535S, code: '1 inch', name: 'ACE-535S', click: '자세히 보기' },
+                { to: '/products/ace/ACE551S', img: ACE551S, code: '1 ½ inch', name: 'ACE-551S', click: '자세히 보기' },
+                { to: '/products/ace/SI1490B', img: SI1490B, code: '1/2 inch', name: 'SI-1490B', click: '자세히 보기' },
             ]
         }
     }
@@ -142,6 +143,13 @@ export default {
     font-size: 1rem;
     color: #333333;
     text-align: center;
+}
+
+.item-click {
+    font-size: 1rem;
+    color: #333333;
+    text-align: center;
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
