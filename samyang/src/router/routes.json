@@ -1209,6 +1209,19 @@
     }
   },
   {
+    "path": "/products/supertool/steelclamps/hlc1herf",
+    "name": "HLC1HERF",
+    "file": "products/supertool/steelclamps/HLC1HERF.vue",
+    "meta": {
+      "breadcrumb": [
+        { "to": "/products", "text": "제품 소개" },
+        { "to": "/products/supertool", "text": "SuperTools" },
+        { "to": "/products/supertool/steelclamps", "text": "SteelClamps" },
+        { "text": "HLC1HERF" }
+      ]
+    }
+  },
+  {
   "path": "/products/supertool/steelclamps/svc1he",
   "name": "SVC1HE",
   "file": "products/supertool/steelclamps/SVC1HE.vue",
@@ -1220,6 +1233,18 @@
       { "text": "SVC1HE" }
     ]
   }
+},
+  {
+  "path": "/products/supertool/steelclamps/svc1herf",
+  "name": "SVC1HERF",
+  "file": "products/supertool/steelclamps/SVC1HERF.vue",
+  "meta": {
+    "breadcrumb": [
+      { "to": "/products", "text": "제품 소개" },
+      { "to": "/products/supertool", "text": "SuperTools" },
+      { "to": "/products/supertool/steelclamps", "text": "SteelClamps" },
+      { "text": "SVC1HERF" }
+    ]
+  }
 }
-
 ]

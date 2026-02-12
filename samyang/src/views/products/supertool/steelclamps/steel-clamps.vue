@@ -12,7 +12,7 @@
                         </div>
                         <div class="product-info">
                             <div class="item-code">{{ prod.code }}</div>
-                            <div class="item-name">{{ prod.name }}</div>
+                            <div class="item-name" v-html="prod.name"></div>
                         </div>
                     </div>
                 </router-link>
@@ -60,6 +60,8 @@ import TVC from '@/assets/images/products/steelclamps/TVC.jpg'
 import TVC1L from '@/assets/images/products/steelclamps/TVC1L.jpg'
 import HLC1HE from '@/assets/images/products/steelclamps/HLC1HE.jpg'
 import SVC1HE from '@/assets/images/products/steelclamps/SVC1HE~12WHE.jpg'
+import HCL1HERF from '@/assets/images/products/steelclamps/HLC-HERF.jpg'
+import SVC1HERF from '@/assets/images/products/steelclamps/SVC-HERF.jpg'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 
 export default {
@@ -68,31 +70,33 @@ export default {
     data() {
         return {
             products: [
+                { to: '/products/supertool/steelclamps/HLC1HE', img: HLC1HE, code: 'HLC1HE~12WHE', name: '수평형 리프팅 클램프 <br>(핸들잠금타입)' },
+                { to: '/products/supertool/steelclamps/HLC1HERF', img: HCL1HERF, code: 'HCL1~3HERF', name: '⭐신제품 수평형 리프팅 클램프<br>(핸들잠금타입)' },
+                { to: '/products/supertool/steelclamps/SVC1HE', img: SVC1HE, code: 'SVC1HE~12WHE', name: '수직형 리프팅 클램프 <br>(핸들잠금타입)' },
+                { to: '/products/supertool/steelclamps/SVC1HERF', img: SVC1HERF, code: 'SVC1~3HERF', name: '⭐신제품 수직형 리프팅 클램프 <br>(핸들잠금타입)' },
                 { to: '/products/supertool/steelclamps/hlc-s', img: HLC_S, code: 'HLC0.5S~3S', name: '강재 빔 리프팅 클램프' },
-                { to: '/products/supertool/steelclamps/HLC1HE', img: HLC1HE, code: 'HLC1HE~12WHE', name: '수평형 리프팅 클램프 (핸들잠금타입)' },
-                { to: '/products/supertool/steelclamps/SVC1HE', img: SVC1HE, code: 'SVC1HE~12WHE', name: '수직형 리프팅 클램프 (핸들잠금타입)' },
-                { to: '/products/supertool/steelclamps/hlc-h', img: HLC1H, code: 'HLC-H, HLC-WH, HLC-HN, HLC-WHN', name: '수평형 리프팅 클램프 (핸들잠금타입)' },
-                { to: '/products/supertool/steelclamps/svc-h', img: SVC1H, code: 'SVC-H, SVC-WH, SVC-HN, SVC-WHN', name: '수직형 리프팅 클램프 (핸들잠금타입)' },
-                { to: '/products/supertool/steelclamps/svc-e', img: SVC1E, code: 'SVC0.3E~2E / 0.3EN~1EN', name: '수직형 리프팅 클램프 (유니버설 샤클 포함, 핸들잠금타입)' },
+                { to: '/products/supertool/steelclamps/hlc-h', img: HLC1H, code: 'HLC-H, HLC-WH, HLC-HN, HLC-WHN', name: '수평형 리프팅 클램프 <br>(핸들잠금타입)' },
+                { to: '/products/supertool/steelclamps/svc-h', img: SVC1H, code: 'SVC-H, SVC-WH, SVC-HN, SVC-WHN', name: '수직형 리프팅 클램프 <br>(핸들잠금타입)' },
+                { to: '/products/supertool/steelclamps/svc-e', img: SVC1E, code: 'SVC0.3E~2E / 0.3EN~1EN', name: '수직형 리프팅 클램프 <br>(유니버설 샤클 포함, 핸들잠금타입)' },
                 { to: '/products/supertool/steelclamps/svc-l', img: SVC_L, code: 'SVC0.5L~5L', name: '수직형 리프팅 클램프 (레버잠금타입)' },
                 { to: '/products/supertool/steelclamps/fkh1', img: FKH1, code: 'FKH1', name: '복공판 리프팅 후크' },
                 { to: '/products/supertool/steelclamps/scc', img: SCC3, code: 'SCC0.3W~6', name: '스크류 캠 클램프 (범용 타입)' },
                 { to: '/products/supertool/steelclamps/sjc', img: SJC1, code: 'SJC0.5 / 1 / 2 / 3', name: '스크류 캠 클램프 (싱글 아이 타입)' },
                 { to: '/products/supertool/steelclamps/sdc-n', img: SDC1N, code: 'SDC0.5N~5N', name: '스크류 캠 클램프 (더블 아이 타입)' },
-                { to: '/products/supertool/steelclamps/sdc-s', img: SDC1S, code: 'SDC0.5S / 1S / 2S / 3.2S / 6.3S', name: '스크류 캠 클램프 (더블 아이 타입, 트위스트 캠 특허)' },
+                { to: '/products/supertool/steelclamps/sdc-s', img: SDC1S, code: 'SDC0.5S / 1S / 2S / 3.2S / 6.3S', name: '스크류 캠 클램프 <br>(더블 아이 타입, 트위스트 캠 특허)' },
                 { to: '/products/supertool/steelclamps/hhc', img: HHC, code: 'HHC0.5~5', name: '리프팅 후크' },
                 { to: '/products/supertool/steelclamps/dlc05', img: DLC05, code: 'DLC0.5', name: '드럼 리프트 클램프' },
-                { to: '/products/supertool/steelclamps/dlc05v', img: DLC05V, code: 'DLC0.5V', name: '드럼 리프트 클램프 (수직형 리프팅)' },
+                { to: '/products/supertool/steelclamps/dlc05v', img: DLC05V, code: 'DLC0.5V', name: '드럼 리프트 클램프 <br>(수직형 리프팅)' },
                 { to: '/products/supertool/steelclamps/dsb1s', img: DSB1S, code: 'DSB1S', name: '드럼 리프트 클램프 밸런스' },
                 { to: '/products/supertool/steelclamps/flh1-2', img: FLH2, code: 'FLH1 / 2', name: '포크리프트용 리프팅 후크' },
-                { to: '/products/supertool/steelclamps/gvc', img: GVC1E, code: 'GVC0.35E,EN / 0.5E,EN / 1E,EN / 2E', name: '수평형 리프팅 클램프 (유니버설 샤클 포함, 핸들잠금타입)' },
-                { to: '/products/supertool/steelclamps/gvc1r', img: GVC1R, code: 'GVC0.5R / 1R', name: '수직형 & 수평형 리프팅 클램프 (핸들잠금타입)' },
-                { to: '/products/supertool/steelclamps/hlc1u', img: HLC1U, code: 'HLC0.5U~5U', name: '수평형 리프팅 클램프 (분할 조 타입)' },
+                { to: '/products/supertool/steelclamps/gvc', img: GVC1E, code: 'GVC0.35E,EN / 0.5E,EN / 1E,EN / 2E', name: '수평형 리프팅 클램프 <br>(유니버설 샤클 포함, 핸들잠금타입)' },
+                { to: '/products/supertool/steelclamps/gvc1r', img: GVC1R, code: 'GVC0.5R / 1R', name: '수직형 & 수평형 리프팅 클램프<br> (핸들잠금타입)' },
+                { to: '/products/supertool/steelclamps/hlc1u', img: HLC1U, code: 'HLC0.5U~5U', name: '수평형 리프팅 클램프 <br>(분할 조 타입)' },
                 { to: '/products/supertool/steelclamps/hpc', img: HPC2N, code: 'HPC0.5N~5N', name: '수평형 리프팅 클램프' },
                 { to: '/products/supertool/steelclamps/lsbn', img: LSBN, code: 'LSBN11~52', name: '밸런스' },
                 { to: '/products/supertool/steelclamps/rgc', img: RGC, code: 'RGC10~100', name: '레일 클램프' },
                 { to: '/products/supertool/steelclamps/sdh3', img: SDH3, code: 'SDH3', name: '슈퍼 풋 락' },
-                { to: '/products/supertool/steelclamps/sjc-s', img: SJC1S, code: 'SJC0.5S / 1S', name: '스크류 캠 클램프 (싱글 아이 타입, 트위스트 캠 특허)' },
+                { to: '/products/supertool/steelclamps/sjc-s', img: SJC1S, code: 'SJC0.5S / 1S', name: '스크류 캠 클램프 <br>(싱글 아이 타입, 트위스트 캠 특허)' },
                 { to: '/products/supertool/steelclamps/slh-n', img: SLH_N, code: 'SLH1N / 2N / 3N', name: '슈퍼 락 후크' },
                 { to: '/products/supertool/steelclamps/slh3a', img: SLH3A_WEB, code: 'SLH2A / 3A', name: '슈퍼 락 후크 (열림/닫힘 락 타입)' },
                 { to: '/products/supertool/steelclamps/slh-nc', img: SLH_NC, code: 'SLH2NC / 3NC, SLH2SC / 3SC, SLH2AC / 3AC, 3ASBC', name: '체인 슬링 포함 슈퍼 락 후크' },
