@@ -82,18 +82,18 @@ export default {
             dimImage: usageDiagram,
             explodedPdf,
             modelList: [
-                { no: 'HLC1HE', capacity: '1', range: '0~25', weight: '30' },
-                { no: 'HLC2HE', capacity: '2', range: '0~30', weight: '40' },
-                { no: 'HLC2WHE', capacity: '2', range: '0~40', weight: '42' },
-                { no: 'HLC3HE', capacity: '3', range: '0~35', weight: '52' },
-                { no: 'HLC4HE', capacity: '4', range: '0~35', weight: '60' },
-                { no: 'HLC4WHE', capacity: '4', range: '25~60', weight: '75' },
-                { no: 'HLC6HE', capacity: '6', range: '0~45', weight: '95' },
-                { no: 'HLC6WHE', capacity: '6', range: '25~65', weight: '110' },
-                { no: 'HLC8HE', capacity: '8', range: '0~50', weight: '120' },
-                { no: 'HLC8WHE', capacity: '8', range: '30~90', weight: '135' },
-                { no: 'HLC12HE', capacity: '12', range: '20~80', weight: '160' },
-                { no: 'HLC12WHE', capacity: '12', range: '40~100', weight: '180' }
+                { no: 'HLC1HE', capacity: '1', range: '0~25', weight: '3.0' },
+                { no: 'HLC2HE', capacity: '2', range: '0~30', weight: '5.5' },
+                { no: 'HLC2WHE', capacity: '2', range: '0~40', weight: '5.9' },
+                { no: 'HLC3HE', capacity: '3', range: '0~35', weight: '9.5' },
+                { no: 'HLC4HE', capacity: '4', range: '0~40', weight: '13.5' }, // range 수정
+                { no: 'HLC4WHE', capacity: '4', range: '25~60', weight: '19.0' },
+                { no: 'HLC6HE', capacity: '6', range: '0~45', weight: '23.0' },
+                { no: 'HLC6WHE', capacity: '6', range: '25~65', weight: '29.0' }, // weight 수정
+                { no: 'HLC8HE', capacity: '8', range: '10~70', weight: '50.0' }, // range, weight 수정
+                { no: 'HLC8WHE', capacity: '8', range: '30~90', weight: '52.0' }, // weight 수정
+                { no: 'HLC12HE', capacity: '12', range: '20~80', weight: '70.0' }, // weight 수정
+                { no: 'HLC12WHE', capacity: '12', range: '40~100', weight: '72.0' } // weight 수정
             ]
         }
     }

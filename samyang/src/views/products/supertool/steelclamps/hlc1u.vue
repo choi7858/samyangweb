@@ -7,7 +7,7 @@
             <!-- 제품 헤더 -->
             <div class="product-header">
                 <h2 class="product-title">
-                    측면 리프팅 클램프 (분할 조 타í��)
+                    측면 리프팅 클램프 (분할 죠 타입)
                 </h2>
                 <p class="product-code">HLC0.5U～5U</p>
             </div>
